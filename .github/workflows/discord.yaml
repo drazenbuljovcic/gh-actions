@@ -1,0 +1,11 @@
+on: push
+
+jobs:
+  discord-message:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Notify Discord"
+        uses: discord-action/message@v2
+        with:
+          webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
+          message: "Hello from Github"
