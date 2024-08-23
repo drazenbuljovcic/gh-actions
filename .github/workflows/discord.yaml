@@ -14,7 +14,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Notify Discord"
-        if: ${{ ! contains(github.event.head_commit.message, '[x]') }}
+        if: ${{ github.event.head_commit.message && ! contains(github.event.head_commit.message, '[x]') }}
         uses: discord-action/message@v2
         env:
           MESSAGE: ${{ inputs.message }}
