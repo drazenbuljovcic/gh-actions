@@ -1,0 +1,25 @@
+{
+  "name": "gh-actions",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "- Updated secret `DISCORD_WEBHOOK_URL`",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drazenbuljovcic/gh-actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drazenbuljovcic/gh-actions/issues"
+  },
+  "homepage": "https://github.com/drazenbuljovcic/gh-actions#readme",
+  "devDependencies": {
+    "octokit": "^4.0.2",
+    "dotenv": "^16.4.5"
+  }
+}
