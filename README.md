@@ -7,3 +7,5 @@
 ```
 KEY=[REDACTED] node script.js
 ```
+
+Support for opt out for push
