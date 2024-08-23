@@ -14,11 +14,12 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Notify Discord"
-        if: ${{ github.event.head_commit.message && ! contains(github.event.head_commit.message, '[x]') }}
+        if: ${{ !github.event.head_commit.message || github.event.head_commit.message && !contains(github.event.head_commit.message, '[x]') }}
         uses: discord-action/message@v2
         env:
           MESSAGE: ${{ inputs.message }}
           DEFAULT: Somebody pushed ${{ github.event.head_commit.id }}
         with:
+          # GITHUB_TOKEN is always defined
           webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
           message: "${{ env.MESSAGE || env.DEFAULT }}"
