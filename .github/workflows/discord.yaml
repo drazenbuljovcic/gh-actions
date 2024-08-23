@@ -1,4 +1,10 @@
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        type: string
+        default: ""
+        required: true
 
 jobs:
   discord-message:
@@ -6,6 +12,8 @@ jobs:
     steps:
       - name: "Notify Discord"
         uses: discord-action/message@v2
+        env:
+          MESSAGE: ${{ inputs.message }}
         with:
           webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
-          message: "Hello from Github"
+          message: ${{ inputs.message || 'echo Somebody tried' }}
