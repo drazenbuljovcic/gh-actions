@@ -18,8 +18,7 @@ jobs:
         uses: discord-action/message@v2
         env:
           MESSAGE: ${{ inputs.message }}
+          DEFAULT: Somebody pushed ${{ github.event.head_commit.id }}
         with:
           webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
-          message: |
-            Somebody pushed ${{ github.event.head_commit.id }}
-            Ran by workflow ${{ github.workflow_sha }}
+          message: "${{ env.MESSAGE || env.DEFAULT }}"
