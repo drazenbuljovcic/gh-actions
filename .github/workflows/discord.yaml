@@ -1,4 +1,7 @@
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       message:
@@ -16,4 +19,6 @@ jobs:
           MESSAGE: ${{ inputs.message }}
         with:
           webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
-          message: ${{ inputs.message || 'echo Somebody tried' }}
+          message: |
+            Somebody pushed ${{ github.event.head_commit.id }}
+            Ran by ${{ github.workflow.id }}

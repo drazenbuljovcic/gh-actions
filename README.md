@@ -1,10 +1,9 @@
 - Updated secret `DISCORD_WEBHOOK_URL`
 
+```bash
+% gh workflow run discord.yaml --ref main -f "message=Hello from CLI"
 ```
-gh api \
-  --method POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  /repos/drazenbuljovcic/gh-actions/actions/workflows/10528604189/dispatches \
-   -f "inputs[message]=Hello from REST"
+
+```
+KEY=[REDACTED] node script.js
 ```
