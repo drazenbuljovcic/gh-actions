@@ -1,1 +1,1 @@
-Push 1
+- Updated secret `DISCORD_WEBHOOK_URL`
