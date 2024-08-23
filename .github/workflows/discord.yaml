@@ -14,6 +14,7 @@ jobs:
     runs-on: "ubuntu-latest"
     steps:
       - name: "Notify Discord"
+        if: ${{ ! contains(github.event.head_commit.message, '[x]') }}
         uses: discord-action/message@v2
         env:
           MESSAGE: ${{ inputs.message }}
@@ -21,4 +22,4 @@ jobs:
           webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
           message: |
             Somebody pushed ${{ github.event.head_commit.id }}
-            Ran by ${{ github.workflow_sha }}
+            Ran by workflow ${{ github.workflow_sha }}
