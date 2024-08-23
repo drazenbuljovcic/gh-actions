@@ -21,4 +21,4 @@ jobs:
           webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
           message: |
             Somebody pushed ${{ github.event.head_commit.id }}
-            Ran by ${{ github.workflow.id }}
+            Ran by ${{ github.workflow_sha }}
