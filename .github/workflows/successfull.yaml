@@ -1,0 +1,9 @@
+on: push
+
+jobs:
+  failing:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: The demo step has succeeded
+        if: ${{ success() && steps.demo.conclusion == 'success' }}
+        run: "echo Success"
