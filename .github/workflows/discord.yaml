@@ -8,6 +8,10 @@ on:
         type: string
         default: ""
         required: true
+      discordWebhookUrl:
+        type: string
+        default: ""
+        required: false
 
 jobs:
   discord-message:
@@ -20,6 +24,5 @@ jobs:
           MESSAGE: ${{ inputs.message }}
           DEFAULT: Somebody pushed ${{ github.event.head_commit.id }}
         with:
-          # GITHUB_TOKEN is always defined
-          webhookUrl: "${{ secrets.DISCORD_WEBHOOK_URL }}"
+          webhookUrl: "${{ inputs.discordWebhookUrl || secrets.DISCORD_WEBHOOK_URL }}"
           message: "${{ env.MESSAGE || env.DEFAULT }}"
